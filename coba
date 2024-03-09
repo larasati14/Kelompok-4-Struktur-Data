@@ -1,0 +1,29 @@
+class Node:
+    def __init__(self, menu, harga):
+         self.menu = menu
+         self.harga = harga
+         self.next = None
+
+class Keranjang:
+     def __init__(self, menu, harga):
+        self.head = None
+        self.lenght = 0
+
+# Menambahkan Pesanan 
+     def tambah_pesanan(self, menu, harga):
+        menu_baru = Node(menu, harga)
+        temp = self.head
+        if temp == None:
+            self.head = menu_baru
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = menu_baru
+        self.lenght += 1
+
+# Menampilkan Pesanan yang Sudah Dipesan
+     def tampilkan_pesanan(self):
+        temp = self.head
+        while temp is not None:
+            print(f"{temp.menu} {temp.harga} rupiah")
