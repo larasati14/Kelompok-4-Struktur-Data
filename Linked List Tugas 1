@@ -44,4 +44,15 @@ def main():
         "boba shake": 16000,
         "mi sundae": 14000,
         "mi ganas": 11000,
-        "creamy mango boba": 2200
+        "creamy mango boba": 22000,
+    }
+
+    keranjang_pesanan = Keranjang("y",0)
+
+    while True:
+        print("\nMenu:")
+        print("1. Pesan menu")
+        PRINT("2. Tampilkan pesanan")
+        print(" 3. Bayar pesanan")
+        print("4. Keluar)
+        pilihan = input("Pilih menu: ")
