@@ -32,4 +32,12 @@ class Keranjang:
 
     def total_harga(self):
         total = 0
-        to
+        temp = self.head
+        while temp:
+            total += temp.harga
+            temp = temp.next
+        print(f"Total pesanan anda yang harus dibayar: {total} rupiah")
+
+def main():
+    menu_miexue = {
+        "miexue ice cream": 5000,
