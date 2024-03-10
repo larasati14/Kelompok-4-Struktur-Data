@@ -41,3 +41,7 @@ class Keranjang:
 def main():
     menu_miexue = {
         "miexue ice cream": 5000,
+        "boba shake": 16000,
+        "mi sundae": 14000,
+        "mi ganas": 11000,
+        "creamy mango boba": 2200
