@@ -27,3 +27,5 @@ class Keranjang:
         temp = self.head
         while temp is not None:
             print(f"{temp.menu} {temp.harga} rupiah")
+            temp = temp.next
+        print("Jumlah Total Pesanan Anda Adalah: ")
