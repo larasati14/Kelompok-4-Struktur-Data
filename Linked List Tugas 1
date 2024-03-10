@@ -53,6 +53,6 @@ def main():
         print("\nMenu:")
         print("1. Pesan menu")
         print("2. Tampilkan pesanan")
-        print(" 3. Bayar pesanan")
-        print("4. Keluar)
+        print("3. Bayar pesanan")
+        print("4. Keluar")
         pilihan = input("Pilih menu: ")
