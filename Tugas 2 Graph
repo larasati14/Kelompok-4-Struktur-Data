@@ -54,3 +54,7 @@ peta_jawatengah.tambah_kota("Kendal")
 peta_jawatengah.tambah_kota("Temanggung")
 peta_jawatengah.tambah_kota("Wonosobo")
 peta_jawatengah.tambah_kota("Banjarnegara")
+
+peta_jawatengah.tambah_jalan("Semarang","Demak")
+peta_jawatengah.tambah_jalan("Semarang","Salatiga")
+peta_jawatengah.tambah_jalan("Semarang","Kendal")
