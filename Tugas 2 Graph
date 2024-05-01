@@ -62,4 +62,6 @@ peta_jawatengah.tambah_jalan("Semarang","Temanggung")
 peta_jawatengah.tambah_jalan("Demak","Kudus")
 peta_jawatengah.tambah_jalan("Kudus","Pati")
 peta_jawatengah.tambah_jalan("Salatiga","Boyolali")
-peta
+peta_jawatengah.tambah_jalan("Temanggung","Wonosobo")
+peta_jawatengah.tambah_jalan("Wonosobo","Banjarnegara")
+
