@@ -21,5 +21,27 @@ class Peta:
                 if kotaDihapus in self.daftar_kota[kotalain]:
                     self.daftar_kota[kotalain].remove(kotaDihapus)
             del self.daftar_kota[kotaDihapus]
+            return True
+        return False
+    
+    def tambah_jalan(self,kota1,kota2):
+        if kota1 in self.daftar_kota and kota2 in self.daftar_kota:
+            #masukkan kota 1 di list kota2
+            self.daftar_kota[kota2].append(kota1)
+            #masukkan kota 2 di list kota1
+            self.daftar_kota[kota1].append(kota2)
+            return True
+        return False
+    
+    def hapus_jalan(self,kota1,kota2):
+        if kota1 in self.daftar_kota and kota2 in self.daftar_kota:
+            #hapus kota 1 di list kota2
+            self.daftar_kota[kota2].remove(kota1)
+            #hapus kota 2 di list kota1
+            self.daftar_kota[kota1].remove(kota2)
+            return True
+        return False
+        
 
+peta_jawatengah = Peta()
 
