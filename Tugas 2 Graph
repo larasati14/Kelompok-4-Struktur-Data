@@ -21,3 +21,5 @@ class Peta:
                 if kotaDihapus in self.daftar_kota[kotalain]:
                     self.daftar_kota[kotalain].remove(kotaDihapus)
             del self.daftar_kota[kotaDihapus]
+
+
