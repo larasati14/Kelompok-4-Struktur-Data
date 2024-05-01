@@ -44,4 +44,7 @@ class Peta:
         
 
 peta_jawatengah = Peta()
-
+peta_jawatengah.tambah_kota("Semarang")
+peta_jawatengah.tambah_kota("Demak")
+peta_jawatengah.tambah_kota("Kudus")
+peta_jawatengah.tambah_kota("Pati")
