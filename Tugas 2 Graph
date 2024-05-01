@@ -65,3 +65,5 @@ peta_jawatengah.tambah_jalan("Salatiga","Boyolali")
 peta_jawatengah.tambah_jalan("Temanggung","Wonosobo")
 peta_jawatengah.tambah_jalan("Wonosobo","Banjarnegara")
 
+print('-' * 70)
+peta_jawatengah.print_peta()
