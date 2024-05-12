@@ -115,7 +115,7 @@ class WeightedGraph:
                 jarak_terpendek = total_distance
                 jalur_terpendek = path
 
-        return jalur_terpendek, jarak_terp
+        return jalur_terpendek, jarak_terpendek
 
 # Example usage with Dijkstra's algorithm:
 peta_jawatengah = WeightedGraph()
