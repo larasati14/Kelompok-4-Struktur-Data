@@ -1,0 +1,50 @@
+#kelompok 3
+from itertools import permutations
+
+class WeightedGraph:
+    # Initialization
+    def __init__(self):
+        self.cityList = {}
+
+    def printGraph(self):
+        # Mengiterasi setiap city
+        for kota in self.cityList:
+            # Setiap kota print nama kota
+            print(kota, ":", self.cityList[kota])
+
+            # Print distances to neighboring cities
+            for tetangga, distance in self.cityList[kota].items():
+                # Print tetangga dan jarak
+                print("    ->", tetangga, ":", distance)
+
+    def tambah_kota(self, kota):
+        # Jika kota tidak ada di cityList
+        if kota not in self.cityList:
+            # Maka tambahkan kota
+            self.cityList[kota] = {}
+            return True
+        return False
+
+    def hapusKota(self, kotaDihapus):
+        # Jika kotaDihapus ada di cityList
+        if kotaDihapus in self.cityList:
+            # Remove the city from the city list
+            del self.cityList[kotaDihapus]
+            # Remove references to the deleted city from other cities
+            for kota in self.cityList:
+                # Jika kotaDihapus ada di cityList[kota]
+                if kotaDihapus in self.cityList[kota]:
+                    # Maka hapus kotaDihapus
+                    del self.cityList[kota][kotaDihapus]
+            return True
+        return False
+
+    def tambah_jalan(self, kota1, kota2, jarak):
+        if kota1 in self.cityList and kota2 in self.cityList:
+            self.cityList[kota1][kota2] = jarak
+            self.cityList[kota2][kota1] = jarak
+            return True
+        return False
+
+    def hapusJalan(self, kota1, kota2):
+        if kota1 in self.cityList and kota2 in self.cityList:
