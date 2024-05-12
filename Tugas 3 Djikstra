@@ -48,3 +48,53 @@ class WeightedGraph:
 
     def hapusJalan(self, kota1, kota2):
         if kota1 in self.cityList and kota2 in self.cityList:
+        if kota2 in self.cityList[kota1]:
+                del self.cityList[kota1][kota2]
+                del self.cityList[kota2][kota1]
+                return True
+        return False
+
+    def dijkstra(self, source):
+        # Initialize distances with infinity
+        # distances = {city: float('inf') for city in self.cityList}
+        
+        distances = {}
+        for kota in self.cityList:
+            distances[kota] = float('inf')
+        
+        distances[source] = 0
+        print (distances)
+        # Initialize list of unvisited cities
+        unvisited_cities = []
+        for kota in self.cityList:
+            unvisited_cities.append(kota)
+        # unvisited_cities = list(self.cityList.keys())
+        print (unvisited_cities)
+
+        while unvisited_cities:
+            # Find the unvisited city with the smallest distance
+            jarak_minimal = float('inf')
+            kota_terdekat = None
+            # Mengiterasi setiap kota yang belum dikunjungi
+            for kota in unvisited_cities:
+                # Jika jarak kota lebih kecil dari min_distance
+                if distances[kota] < jarak_minimal:
+                    jarak_minimal = distances[kota]
+                    kota_terdekat = kota
+
+            # Remove the closest city from unvisited list
+            unvisited_cities.remove(kota_terdekat)
+
+            # Update distances to neighboring cities
+            for tetangga, weight in self.cityList[kota_terdekat].items():
+                # Jika jarak kota terdekat + weight lebih kecil dari jarak kota tetangga
+                distance = distances[kota_terdekat] + weight
+                if distance < distances[tetangga]:
+                    distances[tetangga] = distance
+
+        return distances
+    
+    def tsp(self):
+        # Initialize variables
+        jarak_terpendek = float('inf')
+        jalur_terpendek = []
