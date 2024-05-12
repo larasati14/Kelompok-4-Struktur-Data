@@ -98,3 +98,53 @@ class WeightedGraph:
         # Initialize variables
         jarak_terpendek = float('inf')
         jalur_terpendek = []
+
+        # Generate all permutations of cities
+        cities = list(self.cityList.keys())
+        for path in permutations(cities):
+            # Calculate total distance for current permutation
+            total_distance = 0
+            for i in range(len(path) - 1):
+                if path[i] in self.cityList and path[i + 1] in self.cityList[path[i]]:
+                    total_distance += self.cityList[path[i]][path[i + 1]]
+                else:
+                    total_distance = float('inf')
+                    break  # Break if path is invalid
+            # Check if current permutation is shorter than the current shortest path
+            if total_distance < jarak_terpendek:
+                jarak_terpendek = total_distance
+                jalur_terpendek = path
+
+        return jalur_terpendek, jarak_terp
+
+# Example usage with Dijkstra's algorithm:
+peta_jawatengah = WeightedGraph()
+peta_jawatengah.tambah_kota("Semarang")
+peta_jawatengah.tambah_kota("Demak")
+peta_jawatengah.tambah_kota("Kudus")
+peta_jawatengah.tambah_kota("Pati")
+peta_jawatengah.tambah_kota("Salatiga")
+peta_jawatengah.tambah_kota("Boyolali")
+peta_jawatengah.tambah_kota("Kendal")
+peta_jawatengah.tambah_kota("Temanggung")
+peta_jawatengah.tambah_kota("Wonosobo")
+peta_jawatengah.tambah_kota("Banjarnegara")
+
+peta_jawatengah.tambah_jalan("Semarang","Demak", 33)
+peta_jawatengah.tambah_jalan("Semarang","Salatiga", 51)
+peta_jawatengah.tambah_jalan("Semarang","Kendal", 31)
+peta_jawatengah.tambah_jalan("Semarang","Temanggung", 80)
+peta_jawatengah.tambah_jalan("Demak","Kudus", 26)
+peta_jawatengah.tambah_jalan("Kudus","Pati", 24)
+peta_jawatengah.tambah_jalan("Salatiga","Boyolali", 24)
+peta_jawatengah.tambah_jalan("Temanggung","Wonosobo", 39)
+peta_jawatengah.tambah_jalan("Wonosobo","Banjarnegara", 47)
+
+peta_jawatengah.printGraph()
+shortest_distances = peta_jawatengah.dijkstra("Semarang")
+print("Shortest distances from Semarang to other cities:")
+for kota, jarak in shortest_distances.items():
+    print(kota, ":", jarak)
+jalur_terpendek, jarak_terpendek = peta_jawatengah.tsp()
+print("Jalur TSP terpendek:", jalur_terpendek)
+print("Jarak TSP terpendek:", jarak_terpendek)
